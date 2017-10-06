@@ -1,0 +1,52 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+#browser-panel, #titlebar {
+/*	--chrome-secondary-background-color:#212328; /* override chrome color */
+	--chrome-toolbar-button-opacity: 0.5; /* default navbar button opacity */
+	--chrome-toolbar-button-hover-opacity: 0.7; /* navbar button opacity on hover */
+}
+/* clean up the url- and search-bar*/
+#identity-box, .autocomplete-history-dropmarker,
+#page-action-buttons, .urlbar-go-button, .search-go-container {
+	display:none!important;
+}
+#urlbar, .searchbar-textbox, #nav-bar  {
+	text-align:center;
+	background:none!important;
+	border:none!important;
+	box-shadow: none!important;
+}
+/* make the navigation bar blend in and give the window items some space on the sides */
+#nav-bar, #navigator-toolbox, #titlebar-content { background-color:var(--chrome-secondary-background-color)!important; }
+#main-window:not([sizemode="fullscreen"]) #nav-bar {
+	margin-right:153px !important;
+	margin-top:-29px!important;
+	padding-top:1px!important;
+}
+/* turn off the fullscreen menubar transitions, and ensure the fullscreen menubar triggers */
+#navigator-toolbox { transition:all 0s!important; }
+#main-window[sizemode="fullscreen"] #navigator-toolbox[style^="margin-top"]~#fullscr-toggler {
+	display:-moz-box!important;
+}
+/* muted monochrome toolbar buttons */
+/* simplified back/forward button icons - delete the next two lines if you prefer the default firefox icons. set svg.context-properties.content.enabled in about:config to "true" to make them the right color. */
+#back-button    { list-style-image:url('data:image/svg+xml;utf8,<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 16 16" height="16px" width="16px"><path fill="context-fill" fill-opacity="context-fill-opacity" d="m 12.054714,0.9921875 a 1.0001,1.0001 0 0 1 0.544921,1.8085937 L 5.6679948,8 12.599635,13.199219 a 1.0003907,1.0003907 0 1 1 -1.199218,1.601562 L 3.4004168,8.8007812 a 1.0001,1.0001 0 0 1 0,-1.6015624 l 8.0000002,-6 a 1.0001,1.0001 0 0 1 0.654297,-0.2070313 z" /></svg>')!important ;}
+#forward-button { list-style-image:url('data:image/svg+xml;utf8,<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 16 16" height="16px" width="16px"><path fill="context-fill" fill-opacity="context-fill-opacity" d="M 3.9570312,0.9921875 A 1.0001,1.0001 0 0 0 3.4121094,2.8007812 L 10.34375,8 3.4121094,13.199219 a 1.0003907,1.0003907 0 1 0 1.1992187,1.601562 L 12.611328,8.8007812 a 1.0001,1.0001 0 0 0 0,-1.6015624 l -7.9999999,-6 A 1.0001,1.0001 0 0 0 3.9570312,0.9921875 Z"/></svg>')!important ;}
+.toolbarbutton-badge-stack, .toolbarbutton-icon{--toolbarbutton-hover-background: transparent!important; --toolbarbutton-active-background: transparent!important}
+.toolbarbutton-1:hover { fill-opacity:var(--chrome-toolbar-button-hover-opacity)!important; }
+.toolbarbutton-1, .toolbarbutton-1[disabled] { fill-opacity:var(--chrome-toolbar-button-opacity)!important;}
+/* desaturate the addon badges as well */
+.webextension-browser-action { filter: saturate(0); opacity:var(--chrome-toolbar-button-opacity); }
+:root:-moz-lwtheme-brighttext .webextension-browser-action { filter: saturate(0) invert(100%); }
+.webextension-browser-action:hover { opacity:var(--chrome-toolbar-button-hover-opacity)!important; }
+/* put the window items in their place */
+#titlebar-buttonbox {height:unset!important; position: relative; z-index:2!important;}
+/* heighten the window controls to fit the larger navigation bar */
+#main-window[uidensity="compact"] .titlebar-button {padding: 11px 17px !important; margin-bottom:-3px!important}
+#main-window:not([uidensity]) .titlebar-button {padding: 14px 17px !important; margin-bottom:-9px!important}
+#main-window[uidensity="touch"] .titlebar-button {padding: 15px 17px !important; margin-bottom:-11px!important}
+/* hide tab bar and sidebar header for TSTs */
+#TabsToolbar, [sidebarcommand^="treestyletab"]>#sidebar-header  { visibility:collapse; }
+/* hide sidebar border for TSTs for dark themes */
+:root:-moz-lwtheme-brighttext [sidebarcommand^="treestyletab"]~#sidebar-splitter { display:none!important; }
+/* optional - move the hamburger menu to the left */
+/* #PanelUI-button { -moz-box-ordinal-group: 0; border:none!important; } */

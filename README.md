@@ -1,12 +1,12 @@
 # fx-phonon
 
-[Screenshot-1](screens/phonon001-light.png?raw=true)
+![Screenshot-1](screens/phonon001-light.png?raw=true)
 Firefox 57+ ("Quantum") userChrome configuration for use with tree style tabs.
 
 ### Description
 This theme presupposes that you're using the [tree style tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/) extension. it hides the tab bar and combines the navigation bar with the window controls (— □ ☓) for a more compact browser chrome. Furthermore it lowers contrast of navigation bar buttons and add-on badges. Feel free to use it.
 
-[Screenshot-2](screens/phonon001-dark.png?raw=true)
+![Screenshot-2](screens/phonon001-dark.png?raw=true)
 Dark theme variation.
 
 ### Notes

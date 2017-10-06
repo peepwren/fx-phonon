@@ -1,4 +1,4 @@
-# fx-phonon
+# phonon
 
 ![Screenshot-1](screens/phonon001-light.png?raw=true)
 Firefox 57+ ("Quantum") userChrome configuration for use with tree style tabs.
